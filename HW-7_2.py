@@ -82,3 +82,54 @@ print(reduce (lambda x,y: x*y, list(map(lambda x: factorial(x), filter(lambda x:
 
 array = ["hello", "world", "Python", "is", "great"]
 print(reduce(lambda x,y: x+" "+y, list(map(lambda x: x.upper(), filter(lambda x: len(str(x))%2==0, array)))))
+
+#15 СОРТИРОВКА
+
+array = [6,5,4,3,2,1,0]
+array1= [61,5,4,83,2,10,0]
+
+print(list(map(lambda x: min(without_min_element(array)), array)))
+
+#_______________________________________________ ГЕНЕРАТОРЫ
+
+
+# 1.1
+
+# def five_generator():
+#     i = 5
+#     while True:
+#         yield i
+#         i += 5
+#
+# gen = five_generator()
+# for i in range(10):
+#     print(next(gen), end =", ")
+
+
+# 1.2
+print()
+def square_generator():
+    i = 1
+    while True:
+        square = i ** 2
+        yield square
+        i += 1
+
+
+gen_square = square_generator()
+for i in range(10):
+    print(next(gen_square), end =", ")
+
+
+# 1.3
+print()
+def ignor_3_generator():
+    i = 0
+    while True:
+        if i%3 !=0:
+            yield i
+        i += 1
+
+gen_ignor = ignor_3_generator()
+for i in range(10):
+    print(next(gen_ignor), end =", ")
