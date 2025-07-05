@@ -65,3 +65,20 @@ print(list(map(lambda x: int(len(x)),filter(lambda x: x[0] in "aeiouy", array)))
 
 array = ["racecar", "hello", "level", "world"]
 print(list(filter(lambda x: x[::-1]==x, map(lambda x: x[::-1], array))))
+
+#13
+
+array = [2, 3, 4, 5, 6]
+def factorial(x):
+    if x==0 or x==1:
+        return x
+    elif x>1:
+        return x*(factorial(x-1))
+
+print(reduce (lambda x,y: x*y, list(map(lambda x: factorial(x), filter(lambda x: x%2 == 0, array)))))
+
+
+#14
+
+array = ["hello", "world", "Python", "is", "great"]
+print(reduce(lambda x,y: x+" "+y, list(map(lambda x: x.upper(), filter(lambda x: len(str(x))%2==0, array)))))
