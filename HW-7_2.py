@@ -85,10 +85,14 @@ print(reduce(lambda x,y: x+" "+y, list(map(lambda x: x.upper(), filter(lambda x:
 
 #15 СОРТИРОВКА
 
-array = [6,5,4,3,2,1,0]
-array1= [61,5,4,83,2,10,0]
-
-print(list(map(lambda x: min(without_min_element(array)), array)))
+# array = [6,5,4,3,2,1,0]
+# array1= [61,5,4,83,2,10,0]
+#
+# def lst_without_min(min_el):
+#
+#
+#
+# print(list(map(lambda x: reduce(lambda x,y: min(x,y), lst_without_min()), array)))
 
 #_______________________________________________ ГЕНЕРАТОРЫ
 
