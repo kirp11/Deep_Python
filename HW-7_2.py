@@ -137,3 +137,34 @@ def ignor_3_generator():
 gen_ignor = ignor_3_generator()
 for i in range(10):
     print(next(gen_ignor), end =", ")
+
+
+# 1.4
+print()
+def podstr_generator(value, lenght):
+    i = 0
+    while True:
+        podstr = value[i:(i+lenght)]
+        yield podstr
+        i += 1
+
+value= "abcdefg"
+lenght = 3
+gen_str = podstr_generator(value = value, lenght = lenght)
+for _ in range(len(value) - lenght+1):
+    print(next(gen_str), end =", ")
+
+# 1.5
+print()
+def int_generator(A, B):
+    i = A
+
+    while True:
+        yield i
+        i += 2
+A = 1
+B = 10
+
+gen_between = int_generator(A = A, B = B)
+for i in range((B-A)//2+1):
+    print(next(gen_between), end =", ")
