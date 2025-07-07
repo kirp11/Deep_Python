@@ -84,17 +84,6 @@ print(reduce (lambda x,y: x*y, list(map(lambda x: factorial(x), filter(lambda x:
 array = ["hello", "world", "Python", "is", "great"]
 print(reduce(lambda x,y: x+" "+y, list(map(lambda x: x.upper(), filter(lambda x: len(str(x))%2==0, array)))))
 
-#15 СОРТИРОВКА
-
-# array = [6,5,4,3,2,1,0]
-# array1= [61,5,4,83,2,10,0]
-#
-# def lst_without_min(min_el):
-#
-#
-#
-# print(list(map(lambda x: reduce(lambda x,y: min(x,y), lst_without_min()), array)))
-
 #_______________________________________________ ГЕНЕРАТОРЫ
 
 
@@ -216,3 +205,25 @@ def day_generator():
 generator_day = day_generator()
 for i in range(10):
     print(next(generator_day), end =", ")
+
+
+# 3.2
+print()
+def all_podstr_generator(value_, lenght_):
+    list_podstr = []
+    while True:
+            for j in range(len(value_)+1):
+                for k in range(1, lenght_+1):
+                    podstr = value_[j:j+k]
+                    if not (podstr in list_podstr):
+                        list_podstr.append(podstr)
+
+            for i in range(len(list_podstr)):
+                yield list_podstr[i]
+            break
+
+value_= "hello"
+lenght_ = 3
+gen_words = all_podstr_generator(value_ = value_, lenght_ = lenght_)
+while True:
+    print(next(gen_words), end =", ")
