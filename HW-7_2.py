@@ -1,4 +1,5 @@
 from functools import reduce
+import random
 
 # 1
 array = ["1","40","1080"]
@@ -99,15 +100,15 @@ print(reduce(lambda x,y: x+" "+y, list(map(lambda x: x.upper(), filter(lambda x:
 
 # 1.1
 
-# def five_generator():
-#     i = 5
-#     while True:
-#         yield i
-#         i += 5
-#
-# gen = five_generator()
-# for i in range(10):
-#     print(next(gen), end =", ")
+def five_generator():
+    i = 5
+    while True:
+        yield i
+        i += 5
+
+gen = five_generator()
+for i in range(10):
+    print(next(gen), end =", ")
 
 
 # 1.2
@@ -168,3 +169,50 @@ B = 10
 gen_between = int_generator(A = A, B = B)
 for i in range((B-A)//2+1):
     print(next(gen_between), end =", ")
+
+
+# 1.6
+print()
+def hundred_generator():
+
+    while True:
+        i = random.randint(0, 100)
+        yield i
+
+generator_hundred = hundred_generator()
+for i in range(10):
+    print(next(generator_hundred), end =", ")
+
+
+# 1.7   костыльно....
+print()
+def fibo_generator():
+    i1 = 0
+    i2 = 1
+
+    while True:
+        summ = i1 + i2
+        if i1==0:
+            print("0, ", end = "")
+        yield summ
+        i2 = i1
+        i1 = summ
+
+generator_fib = fibo_generator()
+for i in range(10):
+    print(next(generator_fib), end =", ")
+
+
+# 2.10
+print()
+def day_generator():
+    day = 1
+
+    while True:
+        value = "День " +str(day)
+        yield value
+        day += 1
+
+generator_day = day_generator()
+for i in range(10):
+    print(next(generator_day), end =", ")
