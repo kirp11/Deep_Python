@@ -5,7 +5,7 @@ import asyncio
 async def check(count):
     start = int(time.time())
     delay = 1
-    while count >0:
+    while count > 0:
 
         await asyncio.sleep(delay)
         end = int(time.time())
